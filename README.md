@@ -118,12 +118,18 @@ simple repo to create and manage an eks cluster with eksctl, along with aws lb i
 
 - update cloudflare DNS record CNAME to point to alb's DNS. make sure to enable proxy status
 
-  NOTE: this is provide tls connection from your machine to cloudflare, but not between cloudflare and ALB. to get tls directly to alb
-
-  - provision an acm cert for your domain
-  - attach the cert to the alb's https listener
-
 and voila! your app with HTTPS on EKS is deployed! 🚀
+
+---
+
+### note about tls/https
+
+the last step above will provide tls connection from your machine to cloudflare, but not between cloudflare and ALB.
+
+to get tls directly to alb:
+
+- provision an acm cert for your domain
+- attach the cert to the alb's https listener
 
 ## clean up
 
@@ -135,7 +141,6 @@ kubectl delete ingress demo-ingress
 helm del aws-load-balancer-controller -n kube-system
 
 kubectl delete service web
-kubectl delete deployments.apps
 kubectl delete deployments.apps web
 
 eksctl delete cluster -f eksctl_cluster.yaml
