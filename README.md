@@ -80,6 +80,7 @@ simple repo to create and manage an eks cluster with eksctl, along with aws lb i
   ```
 
 - setup ingress
+
   save the following file as `ingress.yaml`
 
   ```yaml
@@ -112,6 +113,7 @@ simple repo to create and manage an eks cluster with eksctl, along with aws lb i
   ```
 
   get the ALB's DNS with `kubectl get ingress`
+
   NOTE: give it some time to deploy the ALB.
 
 - update cloudflare DNS record CNAME to point to alb's DNS. make sure to enable proxy status
