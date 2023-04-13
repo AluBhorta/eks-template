@@ -16,7 +16,7 @@ simple repo to create and manage an eks cluster with eksctl, along with aws lb i
   ```sh
   export EKS_CLUSTER_NAME=eks-demo
   export AWS_REGION=ap-south-1
-  export AWS_ACCOUNT=123456789012
+  export AWS_ACCOUNT=$(aws sts get-caller-identity --output text --query Account --output text)
   ```
 
 - create eks cluster
